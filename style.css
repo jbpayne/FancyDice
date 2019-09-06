@@ -29,6 +29,7 @@ body {
   transition: opacity 0.25s;
 }
 .dice {
+  height: 200px;
   align-items: center;
   display: grid;
   grid-gap: 2rem;
