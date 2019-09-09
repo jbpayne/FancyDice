@@ -24,7 +24,7 @@ function displayStatus(x) {
     const point = await pointJSON.json();
     const winLoseJSON = await fetch('https://morning-sands-18318.herokuapp.com/state');
     const winLose = await winLoseJSON.text();
-    document.getElementById("roll").innerHTML += winLose != "" ? `${winLose}` : +point >= 2 && x <= 12 ? `<span style="opacity: 0.4;font-size:100px">Point is ${point}</span>` : "<br>";
+    document.getElementById("roll").innerHTML += winLose != "" ? winLose : +point >= 2 && x <= 12 ? `<span style="opacity: 0.4;font-size:100px">Point is ${point}</span>` : "<br>";
   }, 1000);
 }
 
