@@ -3,7 +3,7 @@ async function rollDice() {
   const diceJSON = await fetch('https://morning-sands-18318.herokuapp.com/roll');
   const diceArray = await diceJSON.json();
   console.log(diceArray);
-  const total = await diceArray.reduce((a,b) => a+b);
+  const total = await diceArray.reduce((a, b) => a + b);
   dice.forEach((die, i) => {
     toggleClasses(die);
     die.dataset.roll = diceArray[i];
@@ -17,7 +17,7 @@ function toggleClasses(die) {
 }
 
 function displayStatus(x) {
-  setTimeout(async function() {
+  setTimeout(async function () {
     document.getElementById("roll").style = "opacity: 1";
     document.getElementById("roll").innerHTML = x >= 2 && x <= 12 ? `${x}<br>` : `<span style="opacity: 0.4;font-size:100px">Click dice to play</span>`;
     const pointJSON = await fetch('https://morning-sands-18318.herokuapp.com/point');
@@ -32,5 +32,13 @@ function hideNumber() {
   document.getElementById("roll").style = "opacity: 0";
 }
 
-document.getElementById("dice").addEventListener("click", hideNumber);
-document.getElementById("dice").addEventListener("click", rollDice);
+async function initialize() {
+  document.getElementById("roll").innerHTML = `<span style="opacity: 0.4;font-size:100px">Please wait... Loading</span>`;
+  const point = await fetch('https://morning-sands-18318.herokuapp.com/point');
+  console.log(await point.json());
+  document.getElementById("dice").addEventListener("click", hideNumber);
+  document.getElementById("dice").addEventListener("click", rollDice);
+  document.getElementById("roll").innerHTML = `<span style="opacity: 0.4;font-size:100px">Click dice to play</span>`;
+}
+
+initialize();
