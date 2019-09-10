@@ -13,17 +13,18 @@ If a player has POINT and rolls 7, it is a LOST
   
 Example runs:  
 ```  
-You rolled 7.  
+7  
 You win!  
 ```  
 ```
-You rolled 12.  
+12  
 You lose!  
 ```  
 ```
-You rolled 4. POINT is 4.  
-You rolled 3. POINT is 4.  
-You rolled 11. POINT is 4.  
-You rolled 4.  
+4  
+Point is 4.  
+3 
+Point is 4.  
+4  
 You win!  
 ```  
