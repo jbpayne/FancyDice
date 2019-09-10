@@ -1,8 +1,6 @@
-let reload = false;
 
 async function rollDice() {
   await stateCheck();
-  reload = true;
   const dice = [...document.querySelectorAll(".die-list")];
   const diceJSON = await fetch('https://morning-sands-18318.herokuapp.com/roll');
   const diceArray = await diceJSON.json();
@@ -19,7 +17,6 @@ async function stateCheck() {
   const stateJSON = await fetch('https://morning-sands-18318.herokuapp.com/state');
   const state = await stateJSON.text();
   if (state.startsWith("You")) {
-    reload = false;
     location.reload();
   }
 }
