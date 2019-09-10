@@ -29,7 +29,7 @@ function toggleClasses(die) {
 function displayStatus(x) {
   setTimeout(async function () {
     document.getElementById("roll").style = "opacity: 1";
-    document.getElementById("roll").innerHTML = x >= 2 && x <= 12 ? `${x}<br>` : `<span style="opacity: 0.4;font-size:100px">Click dice to play</span>`;
+    document.getElementById("roll").innerHTML = `${x}<br>`;
     const pointJSON = await fetch('https://morning-sands-18318.herokuapp.com/point');
     const point = await pointJSON.json();
     const winLoseJSON = await fetch('https://morning-sands-18318.herokuapp.com/state');
